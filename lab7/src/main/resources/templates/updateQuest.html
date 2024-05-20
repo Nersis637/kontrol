@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Изменение задания</title>
+</head>
+<body>
+<h1>Изменение задания</h1>
+<form class="form-group" action="/updateQuest" method="post" th:object="${quest}">
+    <label >Quest Id</label><br>
+    <input type="number" th:field="*{questId}"><br>
+
+    <label >Quest Title</label><br>
+    <input type="text" th:field="*{questTitle}"><br>
+
+    <label >Quest Text</label><br>
+    <input type="text" th:field="*{questText}"><br>
+
+    <label >Person id</label><br>
+    <input type="text" th:field="*{personId}"><br>
+
+    <label >Reward</label><br>
+    <input type="number" th:field="*{reward}"><br>
+
+    <label >Penalty</label><br>
+    <input type="number" th:field="*{penalty}"><br>
+
+    <label >Time if Started</label><br>
+    <input type="text" th:field="*{timeOfStarted}"><br>
+
+    <label >Time for quest in minutes</label><br>
+    <input type="number" th:field="*{timeForQuestInMinutes}"><br>
+
+    <label >Place Id</label><br>
+    <input type="text" th:field="*{placeId}"><br>
+
+    <label >Model Id</label><br>
+    <input type="text" th:field="*{modelId}"><br>
+
+    <label >Level Difficulty</label><br>
+    <input type="number" th:field="*{levelDifficulty}"><br>
+
+    <label >Quest Status</label>
+    <select th:field="*{questStatus}">
+        <option th:each="option : ${options}"
+                th:value="${option}"
+                th:text="${option}">
+    </select><br>
+    <input type="submit" value="Изменить задание">
+</form>
+<a class="btn btn-success" href="/quest" role="button">Назад</a>
+</body>
+</html>

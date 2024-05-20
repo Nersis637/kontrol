@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Создание пользователя</title>
+</head>
+<body>
+<h1>Создание пользователя</h1>
+<form class="form-group" action="/createUser" method="post" th:object="${user}">
+  <label >Auth token</label><br>
+  <input type="text" th:field="*{authToken}"><br>
+
+  <label >User name</label><br>
+  <input type="text" th:field="*{userName}"><br>
+
+  <label >Position on starship</label><br>
+  <input type="text" th:field="*{positionOnStarship}"><br>
+
+  <label >Age</label><br>
+  <input type="number" th:field="*{age}"><br>
+
+  <label >Sex</label><br>
+  <input type="text" th:field="*{sex}"><br>
+
+  <label >Balance</label><br>
+  <input type="number" th:field="*{balance}"><br>
+
+  <label >Background</label><br>
+  <input type="text" th:field="*{background}"><br>
+
+  <label >Public background</label><br>
+  <input type="text" th:field="*{publicBackground}"><br>
+
+  <label >Photo</label><br>
+  <input type="text" th:field="*{photo}"><br>
+
+  <label >Security background</label><br>
+  <input type="text" th:field="*{securityBackground}"><br>
+
+  <label >Medical Background</label><br>
+  <input type="text" th:field="*{medicalBackground}"><br>
+
+  <label >Psychology background</label><br>
+  <input type="text" th:field="*{psychologyBackground}"><br>
+
+  <label >Last available</label><br>
+  <input type="number" th:field="*{lastAvailable}"><br>
+
+  <label >User settings</label><br>
+  <input type="text" th:field="*{userSettings}"><br><br>
+
+  <input type="submit" value="Создать пользователя">
+</form>
+<a class="btn btn-success" href="/user" role="button">Назад</a>
+</body>
+</html>

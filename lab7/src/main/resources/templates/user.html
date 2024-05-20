@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<h1>Таблица пользователей</h1>
+
+<table class="table table-blue">
+    <thead >
+    <tr>
+        <th>ID</th>
+        <th>AUTH TOKEN</th>
+        <th>USER NAME</th>
+        <th>POSITION ON STARSHIP</th>
+        <th>AGE</th>
+        <th>SEX</th>
+        <th>BALANCE</th>
+        <th>BACKGROUND</th>
+        <th>PUBLIC BACKGROUND</th>
+        <th>PHOTO</th>
+        <th>SECURITY BACKGROUND</th>
+        <th>MEDICAL BACKGROUND</th>
+        <th>PSYCHOLOGY BACKGROUND</th>
+        <th>LAST AVAILABLE</th>
+        <th>USER SETTINGS</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${user}">
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.authToken}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.positionOnStarship}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.sex}"></td>
+        <td th:text="${user.balance}"></td>
+        <td th:text="${user.background}"></td>
+        <td th:text="${user.publicBackground}"></td>
+        <td th:text="${user.photo}"></td>
+        <td th:text="${user.securityBackground}"></td>
+        <td th:text="${user.medicalBackground}"></td>
+        <td th:text="${user.psychologyBackground}"></td>
+        <td th:text="${user.lastAvailable}"></td>
+        <td th:text="${user.userSettings}"></td>
+        <td>
+            <a th:href="@{'/updateUser/' + ${user.userId}}">edit</a>
+            <a th:href="@{'/deleteUser/' + ${user.userId}}">delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="text-center" th:action="@{/createUser}" method="get">
+    <input name="_csrf" type="hidden" value="Create new User" />
+    <button class="btn btn-primary" type="submit">Create new User</button>
+</form>
+<a href="/logout">Выйти из учетной записи</a>
+</body>
+</html>

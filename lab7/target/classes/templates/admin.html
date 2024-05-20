@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<h1>Таблица заданий</h1>
+<a class="btn btn-dark" href="/" role="button">Назад</a>
+<h1>Таблица пользователей</h1>
+
+<table class="table table-blue">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>TEXT</th>
+        <th>PERSON ID</th>
+        <th>REWARD</th>
+        <th>PENALTY</th>
+        <th>TIME OF STARTED</th>
+        <th>TIME FOR QUEST IN MINUTES</th>
+        <th>PLACE ID</th>
+        <th>MODEL ID</th>
+        <th>LEVEL DIFFICULTY</th>
+        <th>QUEST STATUS</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="quest : ${quest}">
+        <td th:text="${quest.questId}"></td>
+        <td th:text="${quest.questTitle}"></td>
+        <td th:text="${quest.questText}"></td>
+        <td th:text="${quest.personId}"></td>
+        <td th:text="${quest.reward}"></td>
+        <td th:text="${quest.penalty}"></td>
+        <td th:text="${quest.timeOfStarted}"></td>
+        <td th:text="${quest.timeForQuestInMinutes}"></td>
+        <td th:text="${quest.placeId}"></td>
+        <td th:text="${quest.modelId}"></td>
+        <td th:text="${quest.levelDifficulty}"></td>
+        <td th:text="${quest.questStatus}"></td>
+        <td>
+            <a th:href="@{'/updateQuest/' + ${quest.questId}}">edit</a>
+            <a th:href="@{'/deleteQuest/' + ${quest.questId}}">delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="text-center" th:action="@{/createQuest}" method="get">
+    <input name="_csrf" type="hidden" value="Create new Quest" />
+    <button class="btn btn-primary" type="submit">Create new Quest</button>
+</form>
+<a href="/logout">Выйти из учетной записи</a>
+</body>
+</html>
